@@ -1,0 +1,52 @@
+<div class="add-note-popup">
+  <div class="banner" (click)="onClick()"></div>
+  <div class="add-note">
+    <form (ngSubmit)="addNote()">
+      <div>
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          [(ngModel)]="formData.title"
+          placeholder="enter title"
+          required
+        />
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input
+          type="text"
+          id="date"
+          name="date"
+          [(ngModel)]="formData.date"
+          placeholder="enter date in any format you want"
+          required
+        />
+      </div>
+      <div>
+        <label for="subject">Subject:</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          [(ngModel)]="formData.subject"
+          required
+          placeholder="enter an existing subject or add a new one"
+        />
+      </div>
+      <div>
+        <label for="context">Context:</label>
+        <textarea
+        placeholder="your note goes here"
+          id="context"
+          name="context"
+          [(ngModel)]="formData.context"
+          required
+        ></textarea>
+      </div>
+      <h3 *ngIf="!success"></h3>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>

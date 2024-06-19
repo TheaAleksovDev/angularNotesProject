@@ -1,0 +1,42 @@
+<app-add-note-popup
+  *ngIf="newNoteOpened"
+  (closed)="openCloseNewNote()"
+  (addedNote)="onSelectSubject($event)"
+></app-add-note-popup>
+
+<div class="notes-container">
+  <div class="subjects">
+    <div class="subjects-container">
+      <div
+        class="subject"
+        [ngStyle]="{
+          color:
+            selectedSubject.toLowerCase() === subject.toLowerCase()
+              ? 'black'
+              : 'lightslategrey'
+        }"
+        *ngFor="let subject of subjects"
+        (click)="onSelectSubject(subject)"
+      >
+        <h3>{{ subject }}</h3>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <mat-icon class="add-note" (click)="openCloseNewNote()">add</mat-icon>
+
+    <div *ngIf="notes && notes.length > 0; else noNotesMessage">
+    <app-note
+      *ngFor="let note of notes"
+      (deleteActionCompleted)="refreshSubject($event)"
+      [note]="note"
+      (selected)="onSelectedNote($event)"
+      [selectedNote]="selectedNote"
+    ></app-note>
+    </div>
+
+    <ng-template #noNotesMessage>
+      <p>Click the plus button in the bottom right corner to add your first note.</p>
+    </ng-template>
+  </div>
+</div>

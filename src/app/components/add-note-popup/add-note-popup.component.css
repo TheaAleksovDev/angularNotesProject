@@ -1,0 +1,74 @@
+.add-note-popup {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: black;
+  opacity: 60%;
+}
+.add-note {
+  z-index: 110;
+
+  background-color: white;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+input,
+textarea {
+  border: 2px solid lightgrey;
+  border-radius: 1rem;
+  font-size: 1rem;
+  padding: 2px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  width: 40vw;
+  height: 2rem;
+}
+
+textarea {
+  font-family: 'Roboto';
+  height: 20vh;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+
+}
+
+button {
+  border: none;
+  background-color: var(--primary);
+  border-radius: 10px;
+  height: 2rem;
+  font-size: 1rem;
+  font-family: "Roboto";
+  color: white;
+  cursor: pointer;
+}

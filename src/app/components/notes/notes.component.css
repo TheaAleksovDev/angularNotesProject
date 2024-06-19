@@ -1,0 +1,97 @@
+.note-title {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.subjects {
+  padding-top: 3vw;
+  box-sizing: border-box;
+
+  border-right: 2px solid lightgray;
+  height: 100%;
+  display: flex;
+  max-width: 15vw;
+  align-items: left;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.subject {
+  padding: 0vw 3vw 2vw 3vw;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.add-note {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+ 
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  
+  font-weight: 900;
+  font-size: 2.7rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: white;
+  border: 4px solid white;
+  background-color: var(--secondary);
+}
+
+p{
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 3rem;
+}
+
+.add-note:hover {
+  transform: scale(1.3);
+}
+.notes-container {
+  width: 70vw;
+  height: 80vh;
+  /* background-color: var(--primary); */
+  border: 2px solid lightgrey;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: white;
+
+}
+.notes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 70vh;
+  overflow-x: hidden;
+  
+  padding-right: 4rem;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

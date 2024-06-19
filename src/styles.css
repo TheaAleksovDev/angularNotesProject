@@ -1,0 +1,23 @@
+:root {
+    --base: #261636; 
+    --primary:#533175;
+    --secondary: #814CB5;
+    --base-highlight:#AE67F5;
+    --higlight:#FAE828;
+  }
+
+body{
+    background-color: #533175;
+    font-family: "Roboto";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #373c44;
+}
+body *{
+    margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

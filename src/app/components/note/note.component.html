@@ -1,0 +1,29 @@
+<app-delete-note-popup
+  *ngIf="deleteNoteOpened"
+  (closed)="openCloseDeletePopup()"
+  (delete)="onDeleteClick($event)"
+  [id]="note.id"
+></app-delete-note-popup>
+<div class="note" >
+  <div (click)="onClick()"
+  >
+  <h2 class="note-title">
+
+  
+    <div>
+      <mat-icon
+      [ngClass]="{ 'chevron-down': selectedNote === note.id }"
+      class="chevron"
+      >chevron_right</mat-icon
+    >
+    {{ note.title }}
+    </div>
+  <mat-icon class="delete-icon" (click)="openCloseDeletePopup()">delete</mat-icon>
+
+  </h2>
+  <h4 class="note-date" *ngIf="selectedNote === note.id">{{ note.date }}</h4>
+  <p class="note-context" *ngIf="selectedNote === note.id">
+    {{ note.context }}
+  </p>
+  </div>
+</div>
