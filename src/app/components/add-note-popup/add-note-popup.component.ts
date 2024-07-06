@@ -4,7 +4,6 @@ import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { type Form } from './form.model';
 import { Output } from '@angular/core';
-
 import { NotesService } from '../notes/notes.service';
 import { CommonModule } from '@angular/common';
 
@@ -28,14 +27,14 @@ export class AddNotePopupComponent {
   private notesService = inject(NotesService);
 
   @Output() closed = new EventEmitter<void>();
-  @Output() addedNote = new EventEmitter<string>()
+  @Output() addedNote = new EventEmitter<string>();
 
   onClick() {
     this.closed.emit();
   }
 
-  onAddedNote(){
-    this.addedNote.emit(this.formData.subject)
+  onAddedNote() {
+    this.addedNote.emit(this.formData.subject);
   }
 
   private convertToDate(dateString: string): Date {
@@ -47,7 +46,7 @@ export class AddNotePopupComponent {
     this.success = this.notesService.addNote(this.formData);
     if (this.success && this.success) {
       this.closed.emit();
-      this.onAddedNote()
+      this.onAddedNote();
     }
   }
 }

@@ -26,17 +26,19 @@
     <mat-icon class="add-note" (click)="openCloseNewNote()">add</mat-icon>
 
     <div *ngIf="notes && notes.length > 0; else noNotesMessage">
-    <app-note
-      *ngFor="let note of notes"
-      (deleteActionCompleted)="refreshSubject($event)"
-      [note]="note"
-      (selected)="onSelectedNote($event)"
-      [selectedNote]="selectedNote"
-    ></app-note>
+      <app-note
+        *ngFor="let note of notes"
+        (deleteActionCompleted)="refreshSubject($event)"
+        [note]="note"
+        (selected)="onSelectedNote($event)"
+        [selectedNote]="selectedNote"
+      ></app-note>
     </div>
 
     <ng-template #noNotesMessage>
-      <p>Click the plus button in the bottom right corner to add your first note.</p>
+      <p>
+        Click the plus button in the bottom right corner to add your first note.
+      </p>
     </ng-template>
   </div>
 </div>

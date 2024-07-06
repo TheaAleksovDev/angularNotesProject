@@ -7,31 +7,26 @@ export class NotesService {
   [x: string]: any;
   private notes: Note[] = [];
 
+  private subjects: string[] = [];
 
-  private subjects: string[] = []
-
-  constructor(){
-    const notes =localStorage.getItem('notes')
-    const subjects = localStorage.getItem('subjects')
-    if(notes != undefined){
-      this.notes = JSON.parse(notes)
+  constructor() {
+    const notes = localStorage.getItem('notes');
+    const subjects = localStorage.getItem('subjects');
+    if (notes != undefined) {
+      this.notes = JSON.parse(notes);
     }
-    if(subjects != undefined){
-      this.subjects = JSON.parse(subjects)
+    if (subjects != undefined) {
+      this.subjects = JSON.parse(subjects);
     }
- 
   }
 
-  private saveNotes(){
-    localStorage.setItem('notes',JSON.stringify(this.notes))
+  private saveNotes() {
+    localStorage.setItem('notes', JSON.stringify(this.notes));
   }
 
-  
-  private saveSubjects(){
-    localStorage.setItem('subjects',JSON.stringify(this.subjects))
+  private saveSubjects() {
+    localStorage.setItem('subjects', JSON.stringify(this.subjects));
   }
-
-
 
   getNotes(subject: string) {
     return this.notes.filter(
@@ -53,26 +48,19 @@ export class NotesService {
       this.notes.push({ ...formData, id: this.notes.length + 1 });
       if (!this.subjects.includes(formData.subject.toLowerCase())) {
         this.subjects.push(formData.subject.toLowerCase());
-        this.saveSubjects()
+        this.saveSubjects();
       }
-      
 
-      this.saveNotes()
+      this.saveNotes();
 
       return true;
-
     } else {
       return false;
     }
   }
-  
-  deleteNote(id:number){
 
-    this.notes = this.notes.filter(note => note.id != id)
-    this.saveNotes()
+  deleteNote(id: number) {
+    this.notes = this.notes.filter((note) => note.id != id);
+    this.saveNotes();
   }
-
-  
-
-  
 }

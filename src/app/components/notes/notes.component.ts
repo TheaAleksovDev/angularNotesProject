@@ -46,12 +46,11 @@ export class NotesComponent implements OnInit {
     this.newNoteOpened = !this.newNoteOpened;
   }
 
-  refreshSubject(subject:string){
-    this.onSelectSubject(subject)
+  refreshSubject(subject: string) {
+    this.onSelectSubject(subject);
   }
-  
+
   anyNotesCheck(): boolean {
     return this.notesService['some']((note: Note) => note.subject === 'math');
   }
-
 }
