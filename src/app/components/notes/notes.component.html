@@ -4,6 +4,12 @@
   (addedNote)="onSelectSubject($event)"
 ></app-add-note-popup>
 
+<app-remove-subject-popup
+  *ngIf="removeSubjectOpened"
+  (closed)="openCloseRemoveSubject()"
+  (removed)="onRemoveSubject()"
+></app-remove-subject-popup>
+
 <div class="notes-container">
   <div class="subjects">
     <div class="subjects-container">
@@ -18,7 +24,10 @@
         *ngFor="let subject of subjects"
         (click)="onSelectSubject(subject)"
       >
-        <h3>{{ subject }}</h3>
+        <h3>
+          {{ subject }}
+        </h3>
+        <button (click)="onRemoveSubjectConfirm(subject)">x</button>
       </div>
     </div>
   </div>
@@ -31,7 +40,7 @@
         (deleteActionCompleted)="refreshSubject($event)"
         [note]="note"
         (selected)="onSelectedNote($event)"
-        [selectedNote]="selectedNote"
+        [selectedNote]="selectedNoteId"
       ></app-note>
     </div>
 

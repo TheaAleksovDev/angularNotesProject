@@ -4,7 +4,6 @@ import { Form } from '../add-note-popup/form.model';
 
 @Injectable({ providedIn: 'root' })
 export class NotesService {
-  [x: string]: any;
   private notes: Note[] = [];
 
   private subjects: string[] = [];
@@ -38,6 +37,22 @@ export class NotesService {
     return this.subjects;
   }
 
+  tryToAddSubject(subject: string) {
+    if (!this.subjects.includes(subject.toLowerCase())) {
+      this.subjects.push(subject.toLowerCase());
+      this.saveSubjects();
+    }
+  }
+
+  removeSubject(subjectToRemove: string) {
+    this.subjects = this.subjects.filter(
+      (subject) => subject !== subjectToRemove
+    );
+    this.notes = this.notes.filter((note) => note.subject !== subjectToRemove);
+    this.saveSubjects();
+    this.saveNotes();
+  }
+
   addNote(formData: Form) {
     if (
       formData.title &&
@@ -46,11 +61,7 @@ export class NotesService {
       formData.context
     ) {
       this.notes.push({ ...formData, id: this.notes.length + 1 });
-      if (!this.subjects.includes(formData.subject.toLowerCase())) {
-        this.subjects.push(formData.subject.toLowerCase());
-        this.saveSubjects();
-      }
-
+      this.tryToAddSubject(formData.subject);
       this.saveNotes();
 
       return true;

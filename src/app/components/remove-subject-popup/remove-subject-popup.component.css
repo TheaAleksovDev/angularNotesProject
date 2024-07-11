@@ -1,0 +1,60 @@
+.remove-subject-popup {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: black;
+  opacity: 60%;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+.remove-subject {
+  z-index: 115;
+  width: fit-content;
+  height: auto;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3vw;
+  gap: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.5vw 2vw 0.5vw 2vw;
+  border-radius: 10px;
+  font-family: "Roboto";
+  font-weight: 800;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.yes {
+  background-color: var(--secondary);
+}
+.no {
+  background-color: var(--primary);
+}
