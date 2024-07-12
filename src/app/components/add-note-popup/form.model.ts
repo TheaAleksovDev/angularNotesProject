@@ -1,6 +1,6 @@
-export interface Form{
-    title:string;
-    date:string;
-    subject:string;
-    context:string;
-  }
+export interface Form {
+  title: string;
+  date: string;
+  subject: string;
+  context: string;
+}
