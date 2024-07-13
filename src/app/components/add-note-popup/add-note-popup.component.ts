@@ -1,16 +1,16 @@
-import { Component, EventEmitter, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject } from '@angular/core';
 
-import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { type Form } from './form.model';
 import { Output } from '@angular/core';
 import { NotesService } from '../notes/notes.service';
 import { CommonModule } from '@angular/common';
+import { InputValidatorDirective } from '../../input-validator.directive';
 
 @Component({
   selector: 'app-add-note-popup',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, InputValidatorDirective],
   templateUrl: './add-note-popup.component.html',
   styleUrl: './add-note-popup.component.css',
 })
@@ -28,6 +28,7 @@ export class AddNotePopupComponent {
 
   @Output() closed = new EventEmitter<void>();
   @Output() addedNote = new EventEmitter<string>();
+  alertInvalidInputs = false;
 
   onClick() {
     this.closed.emit();
@@ -44,6 +45,13 @@ export class AddNotePopupComponent {
 
   addNote() {
     this.success = this.notesService.addNote(this.formData);
+
+    if (this.success === true) {
+      this.alertInvalidInputs = false;
+    } else {
+      this.alertInvalidInputs = true;
+    }
+
     if (this.success && this.success) {
       this.closed.emit();
       this.onAddedNote();

@@ -51,6 +51,7 @@ textarea {
 
   width: 40vw;
   height: 2rem;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -69,4 +70,9 @@ button {
   font-family: "Roboto";
   color: white;
   cursor: pointer;
+}
+
+.alert {
+  margin: 0;
+  color: rgb(242, 22, 22);
 }
