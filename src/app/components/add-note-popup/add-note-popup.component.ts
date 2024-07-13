@@ -4,7 +4,6 @@ import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { type Form } from './form.model';
 import { Output } from '@angular/core';
-
 import { NotesService } from '../notes/notes.service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy } from '@angular/core';

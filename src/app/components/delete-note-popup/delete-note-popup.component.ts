@@ -5,24 +5,20 @@ import { Component, EventEmitter, Output, Input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './delete-note-popup.component.html',
-  styleUrl: './delete-note-popup.component.css'
+  styleUrl: './delete-note-popup.component.css',
 })
 export class DeleteNotePopupComponent {
-  @Input() id!:number;
-  @Output() closed = new EventEmitter<void>()
-  @Output() delete = new EventEmitter<number>()
+  @Input() id!: number;
+  @Output() closed = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<number>();
 
-  close(){
-    this.closed.emit()
+  close() {
+    this.closed.emit();
   }
 
-  onDelete(){
-    console.log(this.id)
-    this.delete.emit(this.id)
-    this.close()
+  onDelete() {
+    console.log(this.id);
+    this.delete.emit(this.id);
+    this.close();
   }
-
-  
-
-
 }

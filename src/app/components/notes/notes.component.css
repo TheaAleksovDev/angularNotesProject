@@ -4,29 +4,49 @@
 }
 
 .subjects {
-  padding-top: 3vw;
   box-sizing: border-box;
 
   border-right: 2px solid lightgray;
   height: 100%;
   display: flex;
-  max-width: 15vw;
+  width: 15vw;
   align-items: left;
   justify-content: space-between;
   flex-direction: column;
   overflow-y: auto;
 }
 .subject {
-  padding: 0vw 3vw 2vw 3vw;
+  padding: 1vw;
   box-sizing: border-box;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 0.5px solid lightgrey;
 }
 
+.subject button {
+  background-color: rgb(121, 15, 15);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: 0.25s;
+}
+.subject button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
 .add-note {
   position: absolute;
   bottom: 3rem;
   right: 3rem;
- 
+
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -34,7 +54,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  
+
   font-weight: 900;
   font-size: 2.7rem;
   cursor: pointer;
@@ -44,7 +64,7 @@
   background-color: var(--secondary);
 }
 
-p{
+p {
   font-weight: 400;
   font-size: 1.3rem;
   margin: 3rem;
@@ -64,7 +84,6 @@ p{
   justify-content: flex-start;
   flex-direction: row;
   background-color: white;
-
 }
 .notes {
   display: flex;
@@ -74,10 +93,9 @@ p{
   overflow-y: auto;
   height: 70vh;
   overflow-x: hidden;
-  
+
   padding-right: 4rem;
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
