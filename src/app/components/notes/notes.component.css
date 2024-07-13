@@ -14,6 +14,7 @@
   justify-content: space-between;
   flex-direction: column;
   overflow-y: auto;
+  min-width: fit-content;
 }
 .subject {
   padding: 1vw;
@@ -24,6 +25,9 @@
   justify-content: space-between;
   width: 100%;
   border-bottom: 0.5px solid lightgrey;
+  min-width: fit-content;
+  max-width: 20vw;
+  text-wrap: wrap;
 }
 
 .subject button {
