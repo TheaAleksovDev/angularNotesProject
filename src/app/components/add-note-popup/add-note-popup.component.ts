@@ -1,6 +1,4 @@
-import { Component, EventEmitter, inject, OnInit } from '@angular/core';
-
-import { NgModel } from '@angular/forms';
+import { Component, EventEmitter, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { type Form } from './form.model';
 import { Output } from '@angular/core';
@@ -11,6 +9,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-add-note-popup',
@@ -31,7 +30,7 @@ export class AddNotePopupComponent {
   success: boolean = true;
   formData: Form = {
     title: '',
-    date: '',
+    date: null,
     subject: '',
     context: '',
   };
@@ -49,8 +48,7 @@ export class AddNotePopupComponent {
     this.addedNote.emit(this.formData.subject);
   }
 
-  onDateChange(event: any): void {
-    console.log(event.target.value);
+  onDateChange(event: MatDatepickerInputEvent<Date>): void {
     this.formData.date = event.target.value;
   }
 
