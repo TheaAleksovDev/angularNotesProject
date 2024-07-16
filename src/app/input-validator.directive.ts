@@ -13,15 +13,15 @@ import {
 export class InputValidatorDirective implements AfterViewChecked {
   private elementRef = inject(ElementRef);
   @Input({ required: true, alias: 'appInputValidator' }) checkInput!: boolean;
+  public isFilled = false;
 
   ngAfterViewChecked(): void {
     if (this.checkInput && !this.elementRef.nativeElement.value) {
-      console.log('red');
       this.elementRef.nativeElement.style.border = '2px solid red';
+      this.isFilled = false;
     } else {
-      console.log('grey');
-
       this.elementRef.nativeElement.style.border = '2px solid lightgrey';
+      this.isFilled = true;
     }
   }
 }

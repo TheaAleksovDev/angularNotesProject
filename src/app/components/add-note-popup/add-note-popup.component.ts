@@ -1,4 +1,14 @@
-import { Component, EventEmitter, inject } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  inject,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { type Form } from './form.model';
@@ -23,12 +33,28 @@ export class AddNotePopupComponent {
     subject: '',
     context: '',
   };
-
   private notesService = inject(NotesService);
 
   @Output() closed = new EventEmitter<void>();
   @Output() addedNote = new EventEmitter<string>();
   alertInvalidInputs = false;
+
+  @ViewChildren(InputValidatorDirective)
+  allInputs?: QueryList<InputValidatorDirective>;
+  areInputsFilled = false;
+
+  checkInputs() {
+    if (!this.alertInvalidInputs) {
+      return;
+    }
+    let isFilled = true;
+    this.allInputs?.forEach((element) => {
+      if (!element.isFilled) {
+        isFilled = false;
+      }
+    });
+    this.areInputsFilled = isFilled;
+  }
 
   onClick() {
     this.closed.emit();
@@ -36,11 +62,6 @@ export class AddNotePopupComponent {
 
   onAddedNote() {
     this.addedNote.emit(this.formData.subject);
-  }
-
-  private convertToDate(dateString: string): Date {
-    const [day, month, year] = dateString.split('-').map(Number);
-    return new Date(year, month - 1, day);
   }
 
   addNote() {

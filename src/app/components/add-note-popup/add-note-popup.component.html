@@ -8,6 +8,7 @@
           type="text"
           id="title"
           name="title"
+          (change)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.title"
           placeholder="enter title"
@@ -20,6 +21,7 @@
           type="text"
           id="date"
           name="date"
+          (change)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.date"
           placeholder="enter date in any format you want"
@@ -32,6 +34,7 @@
           type="text"
           id="subject"
           name="subject"
+          (change)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.subject"
           required
@@ -44,13 +47,14 @@
           placeholder="your note goes here"
           id="context"
           name="context"
+          (change)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.context"
           required
         ></textarea>
       </div>
       <div class="">
-        <h4 *ngIf="alertInvalidInputs" class="alert">
+        <h4 *ngIf="!areInputsFilled && alertInvalidInputs" class="alert">
           Please fill in all the required fields
         </h4>
         <button type="submit">Submit</button>
