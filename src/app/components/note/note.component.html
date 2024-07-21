@@ -19,7 +19,9 @@
         >delete</mat-icon
       >
     </h2>
-    <h4 class="note-date" *ngIf="selectedNote === note.id">{{ note.date }}</h4>
+    <h4 class="note-date" *ngIf="selectedNote === note.id">
+      {{ note.date | date }}
+    </h4>
     <p class="note-context" *ngIf="selectedNote === note.id">
       {{ note.context }}
     </p>

@@ -1,6 +1,6 @@
 export interface Form {
   title: string;
-  date: string;
+  date: Date | null;
   subject: string;
   context: string;
 }

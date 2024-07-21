@@ -15,14 +15,20 @@
       </div>
       <div>
         <label for="date">Date:</label>
-        <input
-          type="text"
-          id="date"
-          name="date"
-          [(ngModel)]="formData.date"
-          placeholder="enter date in any format you want"
-          required
-        />
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            (dateInput)="onDateChange($event)"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
       </div>
       <div>
         <label for="subject">Subject:</label>
