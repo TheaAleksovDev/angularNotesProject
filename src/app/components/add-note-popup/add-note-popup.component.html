@@ -8,7 +8,7 @@
           type="text"
           id="title"
           name="title"
-          (change)="checkInputs()"
+          (ngModelChange)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.title"
           placeholder="enter title"
@@ -47,7 +47,7 @@
           type="text"
           id="subject"
           name="subject"
-          (change)="checkInputs()"
+          (ngModelChange)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.subject"
           required
@@ -60,7 +60,7 @@
           placeholder="your note goes here"
           id="context"
           name="context"
-          (change)="checkInputs()"
+          (ngModelChange)="checkInputs()"
           [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.context"
           required

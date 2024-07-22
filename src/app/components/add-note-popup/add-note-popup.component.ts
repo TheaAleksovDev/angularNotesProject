@@ -63,11 +63,13 @@ export class AddNotePopupComponent {
     }
     let isFilled = true;
     this.allInputs?.forEach((element) => {
-      if (!element.isFilled) {
+      console.log(element.inputElement.value);
+      if (!element.inputElement.value ) {
         isFilled = false;
       }
     });
     this.areInputsFilled = isFilled;
+    console.log(this.alertInvalidInputs, this.areInputsFilled);
   }
 
   onClick() {
@@ -79,6 +81,7 @@ export class AddNotePopupComponent {
   }
 
   onDateChange(event: MatDatepickerInputEvent<Date>): void {
+    this.checkInputs();
     this.formData.date = event.target.value;
   }
 
