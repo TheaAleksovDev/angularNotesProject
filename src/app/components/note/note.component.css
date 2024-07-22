@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: space-between;
   font-size: 1.6rem;
+  width: 100%;
+  text-wrap: wrap;
 }
 .note > div {
   width: 100%;
@@ -30,7 +32,6 @@
 }
 
 .note {
-  margin-left: 2vw;
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
@@ -48,4 +49,6 @@
 }
 .delete-icon {
   transition: 0.25s ease;
+  width: fit-content;
+  overflow: visible;
 }
