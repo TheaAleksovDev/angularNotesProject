@@ -8,6 +8,8 @@
           type="text"
           id="title"
           name="title"
+          (ngModelChange)="checkInputs()"
+          [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.title"
           placeholder="enter title"
           required
@@ -15,27 +17,38 @@
       </div>
       <div>
         <label for="date">Date:</label>
-        <mat-form-field>
-          <mat-label>Choose a date</mat-label>
-          <input
-            matInput
-            [matDatepicker]="picker"
-            (dateInput)="onDateChange($event)"
-          />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle
-            matIconSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        <div
+          [appInputValidator]="alertInvalidInputs"
+          [inputElement]="inputElement"
+          [isDate]="true"
+        >
+          <mat-form-field class="date">
+            <mat-label>Choose a date</mat-label>
+            <input
+              #inputElement
+              matInput
+              [matDatepicker]="picker"
+              (dateInput)="onDateChange($event)"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+          </mat-form-field>
+        </div>
+
+        <mat-datepicker #picker></mat-datepicker>
       </div>
+
       <div>
         <label for="subject">Subject:</label>
         <input
           type="text"
           id="subject"
           name="subject"
+          (ngModelChange)="checkInputs()"
+          [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.subject"
           required
           placeholder="enter an existing subject or add a new one"
@@ -47,12 +60,18 @@
           placeholder="your note goes here"
           id="context"
           name="context"
+          (ngModelChange)="checkInputs()"
+          [appInputValidator]="alertInvalidInputs"
           [(ngModel)]="formData.context"
           required
         ></textarea>
       </div>
-      <h3 *ngIf="!success"></h3>
-      <button type="submit">Submit</button>
+      <div class="">
+        <h4 *ngIf="!areInputsFilled && alertInvalidInputs" class="alert">
+          Please fill in all the required fields
+        </h4>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   </div>
 </div>
